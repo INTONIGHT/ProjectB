@@ -11,7 +11,11 @@ public class Room extends Fixture{
 		
 	}
 	public Room getExit(String direction) {
-		
+		switch(direction) {
+		case "North":
+			
+			break;
+		}
 	}
 	
 }
