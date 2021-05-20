@@ -16,10 +16,11 @@ public class RoomManager {
 		directions.add("South");
 		directions.add("East");
 		this.house = new ArrayList<Room>();
-		//directions want to be able to add null values n w s e is order of directions
-		house.add(new Room("Foyer","A beautiful foyer with lovely paintings",1,null,null,null));
-		house.add(new Room("Kitchen","A place to eat",null,null,1,1));
-		house.add(new Room("Tv Room","A room to veg out",null,1,1,null));
+		// n w s e is order of directions
+		//-1 means that direciton is not valid
+		house.add(new Room("Foyer","A beautiful foyer with lovely paintings",1,-1,-1,-1));
+		house.add(new Room("Kitchen","A place to eat",-1,-1,1,1));
+		house.add(new Room("Tv Room","A room to veg out",-1,1,1,-1));
 	}
 	
 
