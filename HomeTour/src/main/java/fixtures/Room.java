@@ -2,56 +2,49 @@ package fixtures;
 
 public class Room extends Fixture{
 //index 0 for north 1 for west 2 for south 3 for east.
-	private int n , w , s , e ;
-	
-	
-	public Room(String name, String longDescription,int N,int W,int S,int E) {
-		super(name, longDescription);
-		this.n = N;
-		this.w = W;
-		this.e = E;
-		this.s = S;
+	//instantiate a room with name exits and with 4 spaces to put directions
+	private Room[] exits = new Room[4];
+	public Room() {
+		
 	}
-
-
-	public int getN() {
-		return n;
+	public Room(String roomName, String shortDesciption, String longDescription) {
+		super(roomName, shortDesciption, longDescription);
 	}
-
-
-	public void setN(int n) {
-		this.n = n;
-	}
-
-
-	public int getW() {
-		return w;
-	}
-
-
-	public void setW(int w) {
-		this.w = w;
-	}
-
-
-	public int getS() {
-		return s;
-	}
-
-
-	public void setS(int s) {
-		this.s = s;
-	}
-
-
-	public int getE() {
-		return e;
-	}
-
-
-	public void setE(int e) {
-		this.e = e;
+	public Room[] getExits() {
+		return exits;
 	}
 	
+	public void setExits(Room[] exits) {
+		this.exits = exits;
+	}
+	public void setExits(Room exit, int exitChoice) {
+		this.exits[exitChoice] = exit;
+	}
+	//try to refactor here.
+	//my order is north west south east
+	public Room findExit(String userChoice) {
+		int exitChoice = 0;
+		switch(userChoice) {
+		case "North":
+			exitChoice = 0;
+			break;
+		case "West":
+			exitChoice = 1;
+			break;
+		case "South":
+			exitChoice = 2;
+			break;
+		case "East":
+			exitChoice = 3;
+			break;
+		default :
+			System.out.println("PLease type a valid option carefully");
+		}
+		if(exits[exitChoice] == null || exitChoice >= exits.length) {
+			System.out.println("Please change your option nothing exists there");
+			return this;
+		}
+		return exits[exitChoice];
+	}
 	
 }
