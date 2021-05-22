@@ -22,6 +22,7 @@ public class Room extends Fixture{
 	}
 	//try to refactor here.
 	//my order is north west south east
+	
 	public Room findExit(String userChoice) {
 		int exitChoice = 0;
 		switch(userChoice) {
@@ -40,11 +41,14 @@ public class Room extends Fixture{
 		default :
 			System.out.println("PLease type a valid option carefully");
 		}
+	
 		if(exits[exitChoice] == null || exitChoice >= exits.length) {
 			System.out.println("Please change your option nothing exists there");
 			return this;
 		}
+		 
 		return exits[exitChoice];
 	}
 	
 }
+

@@ -2,6 +2,7 @@ package game;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import fixtures.Room;
 //consider using arrayList
@@ -45,6 +46,26 @@ public class RoomManager {
 				Room[] kitchenExits = {foyer,tvRoom};
 				kitchen.setExits(kitchenExits);
 				Room[] tvRoomExits = {kitchen,guestRoom};
+				tvRoom.setExits(tvRoomExits);
+				Room[] guestRoomExits = {tvRoom};
+				guestRoom.setExits(guestRoomExits);
+		}
+	
+	
+		public Room getRoom(int roomNumber) {
+			return rooms[roomNumber];
+		}
+		public Room getStartingRoom() {
+			return startingRoom;
+		}
+		public void setStartingRoom(Room startingRoom) {
+			this.startingRoom = startingRoom;
+		}
+		public Room[] getRooms() {
+			return rooms;
+		}
+		public void setRooms(Room[] rooms) {
+			this.rooms = rooms;
 		}
 	
 	
