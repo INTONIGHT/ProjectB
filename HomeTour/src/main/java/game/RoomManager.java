@@ -40,15 +40,18 @@ public class RoomManager {
 				rooms[2] = tvRoom;
 				rooms[3] = guestRoom;
 				startingRoom = foyer;
-				
+				//I think I have to change this.
 				Room[] foyerExits = {kitchen};
 				foyer.setExits(foyerExits);
-				Room[] kitchenExits = {foyer,tvRoom};
-				kitchen.setExits(kitchenExits);
-				Room[] tvRoomExits = {kitchen,guestRoom};
-				tvRoom.setExits(tvRoomExits);
-				Room[] guestRoomExits = {tvRoom};
-				guestRoom.setExits(guestRoomExits);
+				//trying something different here.
+				//0 north 1 -west 2 -south 3 0east
+				kitchen.setExits(foyer,2);
+				kitchen.setExits(tvRoom,3);
+				
+				tvRoom.setExits(foyer,1);
+				tvRoom.setExits(guestRoom,2);
+				
+				guestRoom.setExits(tvRoom,1);
 		}
 	
 	

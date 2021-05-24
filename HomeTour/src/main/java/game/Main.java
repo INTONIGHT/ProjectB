@@ -45,9 +45,8 @@ public class Main {
 		return choice;
 	}
 	private static void parse(String[] choice,Player tyler) {
-		//ok i think the quit works
-		//I think direction doesnt get changed.
-		String userChoice = choice[0].intern();
+	
+		String userChoice = choice[0].toString();
 		String direction = null;	
 		direction = userChoice;
 		
@@ -57,6 +56,7 @@ public class Main {
 			System.out.println("You are attempting to move in the "
 					+ direction + " Direction");
 			Room attemptMove = tyler.getCurrentRoom().findExit(direction);
+			
 			tyler.setCurrentRoom(attemptMove);
 		}
 		
