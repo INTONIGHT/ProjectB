@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import fixtures.Fixture;
+import fixtures.LightSwitch;
 import fixtures.Room;
 //consider using arrayList
 public class RoomManager {
@@ -16,9 +18,13 @@ public class RoomManager {
 		//consider making this arraylist so that it can dynamically change
 		
 		Room[] rooms ;
+		Fixture[] fixtures;
 		//constructor
 		public RoomManager(int numRooms) {
 			rooms = new Room[numRooms];
+		}
+		public void FixtureManager(int numFixtures) {
+			fixtures = new Fixture[numFixtures];
 		}
 		public void init() {
 			Room foyer = new Room("Foyer","A nice gathering place",
@@ -40,6 +46,8 @@ public class RoomManager {
 				rooms[2] = tvRoom;
 				rooms[3] = guestRoom;
 				startingRoom = foyer;
+				LightSwitch light = new LightSwitch("This is a light","you can turn it on and off");
+				fixtures[0] = light;
 				//I think I have to change this.
 				Room[] foyerExits = {kitchen};
 				foyer.setExits(foyerExits);
@@ -52,6 +60,7 @@ public class RoomManager {
 				tvRoom.setExits(guestRoom,2);
 				
 				guestRoom.setExits(tvRoom,1);
+				kitchen.setStuff(fixtures);
 		}
 	
 	

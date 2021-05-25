@@ -4,8 +4,12 @@ public class Room extends Fixture{
 //index 0 for north 1 for west 2 for south 3 for east.
 	//instantiate a room with name exits and with 4 spaces to put directions
 	private Room[] exits = new Room[4];
+	private Fixture[] stuff = new Fixture[2];
 	public Room() {
 		
+	}
+	public void setStuff(Fixture[] fixture) {
+		this.stuff = fixture;
 	}
 	public Room(String roomName, String shortDesciption, String longDescription) {
 		super(roomName, shortDesciption, longDescription);
